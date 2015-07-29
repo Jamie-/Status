@@ -25,7 +25,12 @@ table {
     color: #888;
 }
 
-footer > span {
+footer {
+    padding: 20px;
+}
+
+footer > span,
+a {
     color: #00FFFF;
 }
 
