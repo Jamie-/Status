@@ -1,0 +1,40 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    margin: 0 0 20px;
+}
+
+td {
+    text-align: center;
+}
+
+.services {
+    margin-bottom: 5%;
+}
+
+.circle {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    /* border: 3px solid #00FF00; */
+    margin: 10px;
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 20px;
+    width: 100%;
+}
+
+.config > table {
+  margin-bottom: 3%;
+  font-size: 20pt;
+}
