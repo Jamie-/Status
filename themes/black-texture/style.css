@@ -1,0 +1,57 @@
+body {
+    background: #000 url("bg.png");
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+
+h1 {
+    text-align: center;
+    margin: 5%;
+    font-size: 50pt;
+    font-weight: 100;
+}
+
+table {
+    margin: auto;
+}
+
+.title {
+    font-weight: bold;
+}
+
+.foot {
+    text-align: center;
+    color: #888;
+}
+
+footer > span {
+    color: #00FFFF;
+}
+
+#serviceInput, .button {
+    border: thin solid #fff;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 20pt;
+    font-family: 'Lato', sans-serif;
+}
+
+#serviceInput {
+    background: transparent;
+    color: #fff;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.button {
+    background: #fff;
+    color: #222;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button-wide {
+    padding-left: 100px;
+    padding-right: 100px;
+}
