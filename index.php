@@ -4,10 +4,10 @@ date_default_timezone_set('UTC');
 $configs = parse_ini_file("config.ini");
 
 if ($configs['force_config'] == 1) {
-  $services = explode(",", $configs['services']);
+    $services = explode(",", $configs['services']);
 } else {
-  $servicesIni = parse_ini_file("services.ini");
-  $services = explode(",", $servicesIni['services']);
+    $servicesIni = parse_ini_file("services.ini");
+    $services = explode(",", $servicesIni['services']);
 }
 
 $status = array();
@@ -72,84 +72,90 @@ $uptime[1] = $uptimeExplode[$i + 1] . " " . $uptimeExplode[$i + 2]; // set time 
 ?>
 
 <html>
-<head>
-    <title>Server Status Monitor</title>
-    <link href="style.css" rel="stylesheet" />
-    <!--<link href='http://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>-->
-</head>
-<body>
-
-<h1>Server Status Monitor</h1>
-
-<table class="services">
-    <tr>
+    <head>
+        <title>Server Status Monitor</title>
+        <link href="core_style.css" rel="stylesheet"/>
         <?php
-        for ($i = 0; $i <= count($services) - 1; $i++) {
-            echo '<td><div class="circle" ';
-            if ($status[$i] == "Running") {
-                echo ' style="border: 3px solid #00FF00;"';
-            } elseif ($status[$i] == "Halted") {
-                echo ' style="border: 3px solid #FF0000;"';
-            } else {
-                echo ' style="border: 3px solid #FFDE00;"';
-            }
-            echo '><h4>' . $services[$i] . "</h4><h2";
-            if ($status[$i] == "Running") {
-                echo ' style="color: #00FF00;"';
-            } elseif ($status[$i] == "Halted") {
-                echo ' style="color: #FF0000;"';
-            } else {
-                echo ' style="color: #FFDE00;"';
-            }
-            echo ">" . $status[$i] . "</h2></div></td>";
+        if ($configs['theme_css'] != "none") {
+            echo '<link href="' . $configs['theme_css'] . '" rel="stylesheet" />';
         }
         ?>
-    </tr>
-</table>
+        <!--<link href='http://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>-->
+    </head>
+    <body>
 
-<!--<div class="divider"></div>-->
+        <h1>Server Status Monitor</h1>
 
-<div class="foot">
-  Last update: <?php echo date('G:i:s'); ?> UTC |
-  Users: <?php echo $uptime[0]; ?> |
-  Uptime: <?php echo $uptime[1]; ?>
-  <?php
-    if ($configs['load_one'] == 1) {
-      echo " | Load (1 min): " . $uptime[2];
-    }
-    if ($configs['load_one'] == 1) {
-      echo " | Load (5 min): " . $uptime[3];
-    }
-    if ($configs['load_one'] == 1) {
-      echo " | Load (15 min): " . $uptime[4];
-    }
-  ?>
+        <table class="services">
+            <tr>
+                <?php
+                for ($i = 0; $i <= count($services) - 1; $i++) {
+                    echo '<td><div class="circle" ';
+                    if ($status[$i] == "Running") {
+                        echo ' style="border: 3px solid #00FF00;"';
+                    } elseif ($status[$i] == "Halted") {
+                        echo ' style="border: 3px solid #FF0000;"';
+                    } else {
+                        echo ' style="border: 3px solid #FFDE00;"';
+                    }
+                    echo '><h4>' . $services[$i] . "</h4><h2";
+                    if ($status[$i] == "Running") {
+                        echo ' style="color: #00FF00;"';
+                    } elseif ($status[$i] == "Halted") {
+                        echo ' style="color: #FF0000;"';
+                    } else {
+                        echo ' style="color: #FFDE00;"';
+                    }
+                    echo ">" . $status[$i] . "</h2></div></td>";
+                }
+                ?>
+            </tr>
+        </table>
 
-</div>
+        <div class="foot">
+            Last update: <?php echo date('G:i:s'); ?> UTC |
+            Users: <?php echo $uptime[0]; ?> |
+            Uptime: <?php echo $uptime[1]; ?>
+            <?php
+            if ($configs['load_one'] == 1) {
+                echo " | Load (1 min): " . $uptime[2];
+            }
+            if ($configs['load_one'] == 1) {
+                echo " | Load (5 min): " . $uptime[3];
+            }
+            if ($configs['load_one'] == 1) {
+                echo " | Load (15 min): " . $uptime[4];
+            }
+            ?>
 
-<footer class="foot">Enable refresh? <input type="checkbox" name="refreshEnable" id="refreshEnable"> | Refreshing in: <span id="refreshTime">0</span> seconds | Go to the <a href="guiconf.php">interactive configurator</a>?</footer>
+        </div>
 
-<script type="text/javascript">
-    var refreshChk = document.getElementById("refreshEnable");
-    refreshChk.checked = true;
-    var pageTime = document.getElementById("refreshTime");
-    var time = <?php echo $configs['time'] ?>;
-    pageTime.innerHTML = time.toString();
+        <footer class="foot">Enable refresh? <input type="checkbox" name="refreshEnable" id="refreshEnable"> |
+            Refreshing in: <span id="refreshTime">0</span> seconds | Go to the <a href="guiconf.php">interactive
+                configurator</a>?
+        </footer>
 
-    function decrease() {
-        time = time - 1;
-        pageTime.innerHTML = time.toString();
-        if (time == 0) {
-            location.reload();
-        }
-        if (!refreshChk.checked) {
-          clearInterval(timer); // Stops repeat timer
-        }
-    }
+        <script type="text/javascript">
+            var refreshChk = document.getElementById("refreshEnable");
+            refreshChk.checked = true;
+            var pageTime = document.getElementById("refreshTime");
+            var time = <?php echo $configs['time'] ?>;
+            pageTime.innerHTML = time.toString();
 
-    var timer = window.setInterval(decrease, 1000); // Starts repeat timer
+            function decrease() {
+                time = time - 1;
+                pageTime.innerHTML = time.toString();
+                if (time == 0) {
+                    location.reload();
+                }
+                if (!refreshChk.checked) {
+                    clearInterval(timer); // Stops repeat timer
+                }
+            }
 
-</script>
+            var timer = window.setInterval(decrease, 1000); // Starts repeat timer
 
-</body>
+        </script>
+
+    </body>
 </html>
