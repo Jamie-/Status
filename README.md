@@ -16,6 +16,9 @@ Little web app useable to check the status of services (out of your desired sele
 5. Modify the config to your preference (the default config is adequate for use) using either a GUI text editor or using a command line based one like `vi` or `nano`.
 6. Navigate to the install path in your browser! (example http://localhost/status)
 
+### Theming ###
+At the moment the only themes available are the traditional textured black theme and no theme at all. The chosen theme is selectable in the `config.ini` file and the theme itself resides within `themes/<theme_name>/`. Custom themeing is fairly straightforward, I'll write a tutorial/manual at a later date but it's very simple.
+
 ### Security ###
 At the moment, if you intend to put this on a live server with traffic going through it I would delete the `guiconf.php` file, the `save.php` file (this one is more important to delete) and the `services.ini` file. Then in `config.ini`, set `force_config` to `1` and select your required services to track also in that file under `services = "service1,service2,serviceN"`. I'll probably add a login form eventually..
 
@@ -29,4 +32,3 @@ A big shoutout to those guys for their neat design!
 ### To Do ###
 - Combine save.php and guiconf.php into one file.
 - Make the updating refresh use AJAX so as not to reload the page.
-- Ability to use themes.
