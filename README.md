@@ -4,8 +4,8 @@
 Little web app useable to check the status of services (out of your desired selection) on your Linux server (Debian based). Oh, and it's far from a nice 'finished' product - treat it as just for fun.
 
 ### Installation Requirements ###
-- Debain based server
-- Web Server (apache2, lighttpd, nginx)
+- Debian based server
+- Web Server (Apache2, LightTPD, Nginx)
 - PHP Enabled
 
 ### Installation ###
@@ -25,3 +25,8 @@ I have a server in my garage running various things I want access to so I instal
 ### Thanks ###
 While searching to see if anyone had already made one of these sorts of things I stumbled upon this and quite liked the design and so made my own version of that style from scratch: http://xpaw.ru/mcstatus/
 A big shoutout to those guys for their neat design!
+
+### To Do ###
+- Combine save.php and guiconf.php into one file.
+- Make the updating refresh use AJAX so as not to reload the page.
+- Ability to use themes.
