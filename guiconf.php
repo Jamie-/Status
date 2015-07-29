@@ -69,16 +69,23 @@ function removeItem() {
 }
 
 function save() {
-  // Clean the string first
-  $stringOut = services.join(",");
-  do { // string start first
-    if (service.charAt(0)) == ",") {
-      //remove first char
+  var stringOut = services.join(",");
+
+  // Clean up string start.
+  do {
+    if (stringOut.charAt(0) == ",") {
+      stringOut = stringOut.substring(1); // Remove first char.
     }
-  } while (services.charAt(0) == ",");
-  //clean up end of string next
-  window.location.href = "save.php?services=" + services.join(",");
-  //alert(services.join(",")); //DEBUG
+  } while (stringOut.charAt(0) == ",");
+
+  // Clean up string end.
+  do {
+    if (stringOut.charAt(stringOut.length - 1) == ",") {
+      stringOut = stringOut.substring(0, stringOut.length - 1); // Remove last char.
+    }
+  } while (stringOut.charAt(stringOut.length - 1) == ",");
+
+  window.location.href = "save.php?services=" + stringOut; // Initiate the file save.
 }
 
 </script>
