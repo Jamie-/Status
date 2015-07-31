@@ -59,12 +59,20 @@ $configs = parse_ini_file("config.ini");
                     ajaxRefresh();
                     time = timeConst + 1; // My OCD likes to see the value I want before it is decreased, remove the "+ 1" if you want.
                 }
-                if (!refreshChk.checked) {
-                    clearInterval(timer); // Stops repeat timer
-                }
             }
 
-            var timer = window.setInterval(decrease, 1000); // Starts repeat timer
+            var timer = window.setInterval(decrease, 1000); // Starts repeat timer.
+
+            // Listen for changes to the repeat control checkbox.
+            $('input[name = refreshEnable]').change(function(){
+                if($(this).is(':checked'))
+                { // Checkbox is checked.
+                    timer = window.setInterval(decrease, 1000); // Starts repeat timer.
+                } else { // Checkbox is not checked.
+                    clearInterval(timer); // Stops repeat timer.
+                }
+
+            });
 
         </script>
 
