@@ -3,10 +3,14 @@
 ### About ###
 Little web app useable to check the status of services (out of your desired selection) on your Linux server (Debian based). Oh, and it's far from a nice 'finished' product - treat it as just for fun.
 
+### Screenshot ###
+![App screenshot](http://i.imgur.com/BVzcJO6.png)
+
 ### Installation Requirements ###
 - Debian based server
 - Web Server (Apache2, LightTPD, Nginx)
 - PHP Enabled
+- Git
 
 ### Installation ###
 1. Open a terminal.
@@ -14,7 +18,7 @@ Little web app useable to check the status of services (out of your desired sele
 3. Run `git clone https://github.com/Jamie-/Status.git`
 4. (Only if using the GUI config panel) Run `sudo chmod 777 path/to/install/services.ini`.
 5. Modify the config to your preference (the default config is adequate for use) using either a GUI text editor or using a command line based one like `vi` or `nano`.
-6. Navigate to the install path in your browser! (example http://localhost/status)
+6. Navigate to the install path in your browser\! (example http://localhost/status)
 
 ### Theming ###
 At the moment the only themes available are the traditional textured black theme and no theme at all. The chosen theme is selectable in the `config.ini` file and the theme itself resides within `themes/<theme_name>/`. Custom themeing is fairly straightforward, I'll write a tutorial/manual at a later date but it's very simple.
@@ -31,7 +35,7 @@ I have a server in my garage running various things I want access to so I instal
 
 ### Thanks ###
 While searching to see if anyone had already made one of these sorts of things I stumbled upon this and quite liked the design and so made my own version of that style from scratch: http://xpaw.ru/mcstatus/
-A big shoutout to those guys for their neat design!
+A big shoutout to those guys for their neat design\!
 
 ### To Do ###
 - Combine save.php and guiconf.php into one file.
