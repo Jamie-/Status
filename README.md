@@ -31,4 +31,3 @@ A big shoutout to those guys for their neat design!
 
 ### To Do ###
 - Combine save.php and guiconf.php into one file.
-- Make the updating refresh use AJAX so as not to reload the page.
