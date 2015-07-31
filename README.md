@@ -19,6 +19,10 @@ Little web app useable to check the status of services (out of your desired sele
 ### Theming ###
 At the moment the only themes available are the traditional textured black theme and no theme at all. The chosen theme is selectable in the `config.ini` file and the theme itself resides within `themes/<theme_name>/`. Custom themeing is fairly straightforward, I'll write a tutorial/manual at a later date but it's very simple.
 
+### Understanding Errors ###
+`Error 1`: This is highly unlikely to occur and shows that there has been an issue with the status call.
+`Error 2`: In most cases this just means that the service you are looking for has not been installed or is spelt incorrectly.
+
 ### Security ###
 At the moment, if you intend to put this on a live server with traffic going through it I would delete the `guiconf.php` file, the `save.php` file (this one is more important to delete) and the `services.ini` file. Then in `config.ini`, set `force_config` to `1` and select your required services to track also in that file under `services = "service1,service2,serviceN"`. I'll probably add a login form eventually..
 
