@@ -46,7 +46,6 @@ for ($i = 0; $i <= count($services) - 1; $i++) { // Grabs all the status' of all
     }
     //$status[$i] = $temp;
 }
-//var_dump($status); //DEBUG
 
 
 // Get Uptime Info
@@ -54,19 +53,19 @@ $temp = shell_exec("uptime");
 $temp = str_replace(",", "", $temp);
 $uptimeExplode = explode(" ", $temp);
 
-$uptime[2] = $uptimeExplode[count($uptimeExplode) - 3]; // set 1 min average
-$uptime[3] = $uptimeExplode[count($uptimeExplode) - 2]; // set 5 min average
-$uptime[4] = $uptimeExplode[count($uptimeExplode) - 1]; // set 15 min average
+$uptime[2] = $uptimeExplode[count($uptimeExplode) - 3]; // Set 1 min average.
+$uptime[3] = $uptimeExplode[count($uptimeExplode) - 2]; // Set 5 min average.
+$uptime[4] = $uptimeExplode[count($uptimeExplode) - 1]; // Set 15 min average.
 
 if (array_search("user", $uptimeExplode) == FALSE) {
     $i = array_search("users", $uptimeExplode);
 } else {
     $i = array_search("user", $uptimeExplode);
 }
-$uptime[0] = $uptimeExplode[$i - 1]; // set number of users
+$uptime[0] = $uptimeExplode[$i - 1]; // Set number of active users.
 
 $i = array_search("up", $uptimeExplode);
-$uptime[1] = $uptimeExplode[$i + 1] . " " . $uptimeExplode[$i + 2]; // set time up
+$uptime[1] = $uptimeExplode[$i + 1] . " " . $uptimeExplode[$i + 2]; // Set uptime.
 
 ?>
 
@@ -82,7 +81,7 @@ $uptime[1] = $uptimeExplode[$i + 1] . " " . $uptimeExplode[$i + 2]; // set time 
             } else {
                 echo ' style="border: 3px solid #FFDE00;"';
             }
-            echo '><h4>' . $services[$i] . "</h4><h2";
+            echo "><h4>" . $services[$i] . "</h4><h2";
             if ($status[$i] == "Running") {
                 echo ' style="color: #00FF00;"';
             } elseif ($status[$i] == "Halted") {
@@ -98,7 +97,7 @@ $uptime[1] = $uptimeExplode[$i + 1] . " " . $uptimeExplode[$i + 2]; // set time 
 
 <div class="foot">
     Last update: <?php echo date('G:i:s'); ?> UTC |
-    Users: <?php echo $uptime[0]; ?> |
+    Active Users: <?php echo $uptime[0]; ?> |
     Uptime: <?php echo $uptime[1]; ?>
     <?php
     if ($configs['load_one'] == 1) {
