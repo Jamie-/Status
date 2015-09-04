@@ -14,7 +14,7 @@ $configs = parse_ini_file("config.ini");
             echo '<link href="' . $configs['theme_css'] . '" rel="stylesheet" />';
         }
         ?>
-        <!--<link href='http://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>-->
+        <link href='http://fonts.googleapis.com/css?family=Lato:100,300' rel='stylesheet' type='text/css'>
     </head>
     <body>
 
@@ -27,7 +27,7 @@ $configs = parse_ini_file("config.ini");
                 configurator</a>?
         </footer>
 
-        <script type="text/javascript" src="jquery-2.0.2.js"></script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script type="text/javascript">
             var refreshChk = document.getElementById("refreshEnable");
             refreshChk.checked = true;
