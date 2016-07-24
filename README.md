@@ -39,3 +39,4 @@ A big shoutout to those guys for their neat design\!
 
 ### To Do ###
 - Combine save.php and guiconf.php into one file.
+- Move CSS font import from index.php to style.css in all repective theme directories.
