@@ -34,9 +34,11 @@ At the moment, if you intend to put this on a live server with traffic going thr
 I have a server in my garage running various things I want access to so I installed ddclient to update DNS every time my house IP changes - all is good. However the ddclient daemon likes to stop itself running every now and again for whatever reason. I started this just as a simple way of easily and quickly being able to keep an eye on what services (of my choice) are running. Then after that I got a bit carried away and now have quite a few plans for it but only time will tell.
 
 ### Thanks ###
-While searching to see if anyone had already made one of these sorts of things I stumbled upon this and quite liked the design and so made my own version of that style from scratch: http://xpaw.ru/mcstatus/
+While searching to see if anyone had already made one of these sorts of things I stumbled upon this and quite liked the design and so made my own version of that style from scratch: `http://xpaw.ru/mcstatus/` [^1].
 A big shoutout to those guys for their neat design\!
 
 ### To Do ###
 - Combine save.php and guiconf.php into one file.
 - Move CSS font import from index.php to style.css in all repective theme directories.
+
+[^1]: Link started redirecting to https://github.com/xPaw/mcstatus but is now just dead.
